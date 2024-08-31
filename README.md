@@ -31,13 +31,6 @@ This project is a Python-based image resizer that processes images from an exist
     pip install -r requirements.txt
     ```
 
-    *Ensure that `requirements.txt` includes:*
-
-    ```text
-    Pillow
-    tqdm
-    ```
-
 ## Usage
 
 1. Run the `main.py` script:
