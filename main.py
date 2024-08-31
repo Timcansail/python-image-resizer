@@ -1,7 +1,13 @@
 import os
+from PIL import PngImagePlugin
+from tqdm import tqdm
 from image_resizer import resizer, file_manager, utils
 
 def main():
+    # Increase the text chunk size limits before processing images
+    PngImagePlugin.MAX_TEXT_CHUNK = 10 * 1024 * 1024  # 10MB limit for individual text chunks
+    PngImagePlugin.MAX_TEXT_MEMORY = 100 * 1024 * 1024  # 100MB total limit for all text chunks
+
     # Ask user for external root directory
     root_directory = input("Enter external root directory path: ")
 
