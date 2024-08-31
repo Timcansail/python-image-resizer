@@ -9,10 +9,12 @@ def get_image_paths(root_directory):
                 image_paths.append(os.path.join(dirpath, filename))
     return image_paths
 
-def create_output_directory(base_path, output_type):
+def create_base_directories(base_path, output_type):
+    """
+    Creates the base directories ('single', 'listing', 'thumbnail') in the root directory.
+    """
     output_dir = os.path.join(base_path, output_type)
-    os.makedirs(output_dir, exist_ok = True)
-    return output_dir
+    os.makedirs(output_dir, exist_ok=True)
 
 def save_image(image, output_path):
     image.save(output_path)
