@@ -10,6 +10,12 @@ def process_image(image_path, root_directory, output_root):
                               ("listing", resizer.resize_to_listing), 
                               ("thumbnail", resizer.resize_to_thumbnail)]:
         output_path = utils.generate_output_path(output_root, image_path, root_directory, size)
+
+        # Check if the resized image already exists
+        if os.path.exists(output_path):
+            results.append((image_path, size, "Skipped: Already exists"))
+            continue
+
         try:
             resize_func(image_path, output_path)
             results.append((image_path, size, "Success"))
